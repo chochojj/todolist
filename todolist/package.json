@@ -1,4 +1,4 @@
-{ "homepage": "https://chochojj.github.io/todolist/",
+{ 
   "name": "todolist",
   "version": "0.1.0",
   "private": true,
@@ -22,6 +22,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
+  "homepage": "https://chochojj.github.io/todolist/",
   "eslintConfig": {
     "extends": [
       "react-app",
