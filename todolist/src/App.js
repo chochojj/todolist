@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Header from './components/header';
 import TodoList from './components/TodoList';
@@ -35,12 +36,16 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <>
+    {/* <BrowserRouter> */}
       <GlobalStyle />
       <Header/>
-      <TodoList>
+      {/* <Routes> */}
+        <TodoList>
         <AddForm/>
         <Todo/>
-      </TodoList>
+        </TodoList>
+      {/* </Routes> */}
+    {/* </BrowserRouter> */}
     </>
   );
 }
