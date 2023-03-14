@@ -9,7 +9,10 @@ const Header = () => {
 
   return (
     <Mainheader>
-
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
     </Mainheader>
   );
 };
