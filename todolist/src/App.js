@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import { createGlobalStyle } from 'styled-components';
+import Header from './components/header';
 import TodoList from './components/TodoList';
 import Todo from './components/Todo';
 import AddForm from './components/AddForm';
@@ -35,6 +36,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <Header/>
       <TodoList>
         <AddForm/>
         <Todo/>
