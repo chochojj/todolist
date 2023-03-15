@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React from 'react';
+import {React, useState } from 'react';
 import './App.css';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
@@ -11,8 +11,6 @@ import TodoPage from './pages/TodoPage';
 
 
 const GlobalStyle = createGlobalStyle`
-  
-
   *{
     list-style: none;
     text-decoration: none;
@@ -30,16 +28,20 @@ const GlobalStyle = createGlobalStyle`
     background-image: url(https://i.pinimg.com/564x/01/04/fa/0104fa2f4166c80aceec00e243e15d25.jpg);
     /* 높이를 줘야 align-items: center; 가 먹음 */
   }
-  
-
 `;
 
 function App() {
+  const [openside, setSide] = useState(false);
+
+
   return (
     <>
     {/* <BrowserRouter> */}
       <GlobalStyle />
-      <Header/>
+      <Header 
+        openside={openside}
+        setSide={setSide}
+      />
       <TodoPage/>
       {/* <Routes>
         <Route path="/" element={<TodoPage/>} />
