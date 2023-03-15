@@ -39,12 +39,12 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
         <GlobalStyle />
         <Header 
           openside={openside}
           setSide={setSide}
         />
+        <BrowserRouter>
         {/* <TodoPage/> */}
         <Routes>
           <Route path="/" element={<TodoPage/>} />
@@ -52,8 +52,9 @@ function App() {
           <Route path="/calendar" element={<Calendar/>} />
           <Route path="/madeby" element={<Madeby/>} />
         </Routes>
+        {/* 링크로 연결시키는 부분이 브라우저 라우터 - 라우츠 사이 있어야함 */}
+        {openside === true ? <SideBar/> : null}
       </BrowserRouter>
-      {openside === true ? <SideBar/> : null}
     </>
   );
 }

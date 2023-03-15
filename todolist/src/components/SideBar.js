@@ -29,10 +29,10 @@ function SideBar() {
   return (
     <Side>
         <nav>
-            {/* <Link to="/"><span>할 일 보기</span></Link>
-            <Link to="/diary"><span>내 일기장</span></Link>
-            <Link to="/calendar"><span>달력 보기</span></Link>
-            <Link to="/madeby"><span>만든 사람</span></Link> */}
+            <Link to="/">할 일 보기</Link>
+            <Link to="/diary">내 일기장</Link>
+            <Link to="/calendar">달력 보기</Link>
+            <Link to="/madeby">만든 사람</Link>
         </nav>
     </Side>
   );
