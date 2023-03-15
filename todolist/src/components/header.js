@@ -27,14 +27,17 @@ const Mainheader = styled.header`
   }
 `
 
-const Header = () => {
- 
+const Header = ({openside, setSide}) => {
+  const openHandler = () => {
+    console.log(openside)
+    setSide(!openside);
+  };
 
   return (
     <Mainheader>
         <ul>
           <li><img src={rabbit} className='rabbit' alt='테마' /></li>
-          <li><img src={carrot} className='carrot' alt='메뉴' /></li>
+          <li><img onClick={openHandler} src={carrot} className='carrot' alt='메뉴' /></li>
         </ul>
     </Mainheader>
   );
