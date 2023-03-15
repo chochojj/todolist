@@ -15,10 +15,9 @@ const Header = () => {
 
   return (
     <Mainheader>
-        <nav>
-          {/* <Link to="/">상품리스트</Link> */}
-          {/* <Link to="/shoppingcart"> */}
-        </nav>
+        <ul>
+          
+        </ul>
     </Mainheader>
   );
 };
