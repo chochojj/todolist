@@ -10,6 +10,7 @@ const Mainheader = styled.header`
   height: 70px;
   background-color: rgba(241,218,197,0.65);
   box-shadow: 0px 4px 4px rgba(0,0,0, 0.1);
+  z-index: 5;
   ul{
     padding: 0;
     margin: 0;
@@ -18,9 +19,11 @@ const Mainheader = styled.header`
     justify-content: flex-end;
     align-items: center;
     margin-right: 10px;
+    z-index: 5;
   }
   img{
     width: 60px;
+    z-index: 10;
     &:hover{
       cursor: pointer;
     }
@@ -29,7 +32,7 @@ const Mainheader = styled.header`
 
 const Header = ({openside, setSide}) => {
   const openHandler = () => {
-    console.log(openside)
+    // console.log(openside)
     setSide(!openside);
   };
 
