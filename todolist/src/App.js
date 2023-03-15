@@ -4,9 +4,10 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Header from './components/header';
-import TodoList from './components/TodoList';
-import Todo from './components/Todo';
-import AddForm from './components/AddForm';
+import TodoPage from './pages/TodoPage';
+import Diary from './pages/Diary';
+import Calendar from './pages/Calendar';
+import Madeby from './pages/MadeBy';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -36,16 +37,16 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <>
-    {/* <BrowserRouter> */}
+    <BrowserRouter>
       <GlobalStyle />
       <Header/>
-      {/* <Routes> */}
-        <TodoList>
-        <AddForm/>
-        <Todo/>
-        </TodoList>
-      {/* </Routes> */}
-    {/* </BrowserRouter> */}
+      <Routes>
+        <Route path="/" element={<TodoPage/>} />
+        <Route path="/diary" element={<Diary/>} />
+        <Route path="/calendar" element={<Calendar/>} />
+        <Route path="/madeby" element={<Madeby/>} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }
