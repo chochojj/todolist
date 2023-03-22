@@ -12,6 +12,9 @@ function Diary() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!inputTitle || !inputContent) {
+      return;
+    }
     const currentDate = new Date().toLocaleDateString();
     setDiaries([...diaries, { title: inputTitle, content: inputContent, date: currentDate }]);
     setInputTitle('');
@@ -27,8 +30,17 @@ function Diary() {
   return (
     <todaylog>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="제목" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)} />
-        <textarea placeholder="내용" value={inputContent} onChange={(e) => setInputContent(e.target.value)} />
+        <input 
+          type="text" 
+          placeholder="제목" 
+          value={inputTitle} 
+          onChange={(e) => setInputTitle(e.target.value)} 
+        />
+        <textarea 
+          placeholder="내용" 
+          value={inputContent} 
+          onChange={(e) => setInputContent(e.target.value)} 
+        />
         <button type="submit">작성</button>
       </form>
       <ul>
