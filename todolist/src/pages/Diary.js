@@ -8,7 +8,7 @@ const TodayLog = styled.div`
 `
 
 function Diary() {
-   const [diaries, setDiaries] = useState([]);
+  const [diaries, setDiaries] = useState([]);
   const [inputTitle, setInputTitle] = useState('');
   const [inputContent, setInputContent] = useState('');
   const [emptyInput, setEmptyInput] = useState(false);
@@ -29,8 +29,14 @@ function Diary() {
 
   const handleDelete = (index) => {
     const newDiaries = [...diaries];
+    if (selectedDiaryIndex === index) {
+      setSelectedDiaryIndex(null);
+    } else if (selectedDiaryIndex > index) {
+      setSelectedDiaryIndex(selectedDiaryIndex - 1);
+    }
     newDiaries.splice(index, 1);
     setDiaries(newDiaries);
+    console.log(selectedDiaryIndex)
   };
 
   const handleSelect = (index) => {
