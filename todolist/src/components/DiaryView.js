@@ -3,6 +3,7 @@ import { useState } from 'react';
 function DiaryView({ title, content, date, setSelectedDiaryIndex }) {
   const [editableTitle, setEditableTitle] = useState(title);
   const [editableContent, setEditableContent] = useState(content);
+  const [isEditable, setIsEditable] = useState(false);
   
   const handleTitleChange = (e) => {
     setEditableTitle(e.target.value);
@@ -15,11 +16,16 @@ function DiaryView({ title, content, date, setSelectedDiaryIndex }) {
   const handleSave = () => {
     title = editableTitle;
     content = editableContent;
+    setIsEditable(false);
+  };
+
+  const handleEdit = () => {
+    setIsEditable(true);
   };
 
   const handleBack = () => {
     setSelectedDiaryIndex(null);
-    };
+  };
   
   return (
     <div>
@@ -27,15 +33,22 @@ function DiaryView({ title, content, date, setSelectedDiaryIndex }) {
         type="text" 
         value={editableTitle} 
         onChange={handleTitleChange} 
+        disabled={!isEditable}
       />
       <textarea
         value={editableContent}
         onChange={handleContentChange}
+        disabled={!isEditable}
       />
       <div>{date}</div>
-      <button onClick={handleSave}>저장</button>
+      {isEditable ? (
+        <button onClick={handleSave}>저장</button>
+      ) : (
+        <button onClick={handleEdit}>수정하기</button>
+      )}
       <button onClick={handleBack}>목록보기</button>
     </div>
   );
 }
+
 export default DiaryView;

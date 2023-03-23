@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import DiaryForm from '../components/DiaryForm';
+import DiaryList from '../components/DiaryList';
+import DiaryView from '../components/DiaryView';
 const todaylog = styled.div`
     
 `
