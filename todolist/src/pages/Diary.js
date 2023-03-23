@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import DiaryForm from '../components/DiaryForm';
 import DiaryList from '../components/DiaryList';
 import DiaryView from '../components/DiaryView';
-const todaylog = styled.div`
+const TodayLog = styled.div`
     
 `
 
@@ -38,7 +38,7 @@ function Diary() {
   };
 
   return (
-    <todaylog>
+    <TodayLog>
       <DiaryForm
         inputTitle={inputTitle}
         setInputTitle={setInputTitle}
@@ -61,7 +61,7 @@ function Diary() {
           setSelectedDiaryIndex={setSelectedDiaryIndex}
         />
       )}
-    </todaylog>
+    </TodayLog>
   );
 }
 
