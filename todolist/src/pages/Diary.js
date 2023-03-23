@@ -59,6 +59,9 @@ function Diary() {
           content={diaries[selectedDiaryIndex].content}
           date={diaries[selectedDiaryIndex].date}
           setSelectedDiaryIndex={setSelectedDiaryIndex}
+          selectedDiaryIndex={selectedDiaryIndex}
+          diaries={diaries}
+          setDiaries={setDiaries} 
         />
       )}
     </TodayLog>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function DiaryView({ title, content, date, setSelectedDiaryIndex }) {
+function DiaryView({ title, content, date, setSelectedDiaryIndex, diaries, setDiaries, selectedDiaryIndex }) {
   const [editableTitle, setEditableTitle] = useState(title);
   const [editableContent, setEditableContent] = useState(content);
   const [editable, setEditable] = useState(false);
@@ -14,8 +14,9 @@ function DiaryView({ title, content, date, setSelectedDiaryIndex }) {
   };
   
   const handleSave = () => {
-    title = editableTitle;
-    content = editableContent;
+    const newDiaries = [...diaries];
+    newDiaries[selectedDiaryIndex] = { title: editableTitle, content: editableContent, date: date };
+    setDiaries(newDiaries);
     setEditable(false);
   };
 
@@ -41,7 +42,7 @@ function DiaryView({ title, content, date, setSelectedDiaryIndex }) {
       {contentElement}
       <div>{date}</div>
       {editable ? (
-        <button onClick={handleSave}>저장</button>
+        <button onClick={handleSave}>수정완료</button>
       ) : (
         <button onClick={() => setEditable(true)}>수정</button>
       )}
