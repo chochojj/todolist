@@ -6,10 +6,11 @@ const todaylog = styled.div`
 `
 
 function Diary() {
-  const [diaries, setDiaries] = useState([]);
+   const [diaries, setDiaries] = useState([]);
   const [inputTitle, setInputTitle] = useState('');
   const [inputContent, setInputContent] = useState('');
   const [emptyInput, setEmptyInput] = useState(false);
+  const [selectedDiaryIndex, setSelectedDiaryIndex] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,31 +31,34 @@ function Diary() {
     setDiaries(newDiaries);
   };
 
+  const handleSelect = (index) => {
+    setSelectedDiaryIndex(index);
+  };
+
   return (
     <todaylog>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          placeholder="제목" 
-          value={inputTitle} 
-          onChange={(e) => setInputTitle(e.target.value)} 
+      <DiaryForm
+        inputTitle={inputTitle}
+        setInputTitle={setInputTitle}
+        inputContent={inputContent}
+        setInputContent={setInputContent}
+        emptyInput={emptyInput}
+        handleSubmit={handleSubmit}
+      />
+      <DiaryList
+        diaries={diaries}
+        handleDelete={handleDelete}
+        handleSelect={handleSelect}
+        selectedDiaryIndex={selectedDiaryIndex}
+      />
+      {selectedDiaryIndex !== null && (
+        <DiaryView
+          title={diaries[selectedDiaryIndex].title}
+          content={diaries[selectedDiaryIndex].content}
+          date={diaries[selectedDiaryIndex].date}
+          setSelectedDiaryIndex={setSelectedDiaryIndex}
         />
-        <textarea
-          placeholder="내용"
-          value={inputContent}
-          onChange={(e) => setInputContent(e.target.value)}
-        />
-        {emptyInput && <div>입력칸이 비었습니다.</div>}
-        <button type="submit">작성</button>
-      </form>
-      <ul>
-        {diaries.map((diary, index) => (
-          <li key={index}>
-            {diary.title} ({diary.date})
-            <button onClick={() => handleDelete(index)}>삭제</button>
-          </li>
-        ))}
-      </ul>
+      )}
     </todaylog>
   );
 }
