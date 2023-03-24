@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 
 function DiaryView({ title, content, date, setSelectedDiaryIndex, diaries, setDiaries, selectedDiaryIndex }) {
   const [editableTitle, setEditableTitle] = useState(title);
