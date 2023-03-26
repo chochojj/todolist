@@ -1,6 +1,12 @@
+import styled from 'styled-components';
+
+const FormDiary = styled.form`
+
+`
+
 function DiaryForm({ inputTitle, setInputTitle, inputContent, setInputContent, emptyInput, handleSubmit }) {
     return (
-      <form onSubmit={handleSubmit}>
+      <FormDiary onSubmit={handleSubmit}>
         <input 
           type="text" 
           placeholder="제목" 
@@ -14,7 +20,7 @@ function DiaryForm({ inputTitle, setInputTitle, inputContent, setInputContent, e
         />
         {emptyInput && <div>입력칸이 비었습니다.</div>}
         <button type="submit">작성</button>
-      </form>
+      </FormDiary>
     );
   }
 export default DiaryForm;
