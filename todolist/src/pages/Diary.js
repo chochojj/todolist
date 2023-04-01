@@ -3,9 +3,17 @@ import styled from 'styled-components';
 import DiaryForm from '../components/DiaryForm';
 import DiaryList from '../components/DiaryList';
 import DiaryView from '../components/DiaryView';
-const TodayLog = styled.div`
-    
-`
+
+const TodayLog = styled.div``;
+
+const AddDiaryButton = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 function Diary() {
   const [diaries, setDiaries] = useState([]);
@@ -13,6 +21,7 @@ function Diary() {
   const [inputContent, setInputContent] = useState('');
   const [emptyInput, setEmptyInput] = useState(false);
   const [selectedDiaryIndex, setSelectedDiaryIndex] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +34,7 @@ function Diary() {
     setInputTitle('');
     setInputContent('');
     setEmptyInput(false);
+    setShowForm(false);
   };
 
   const handleDelete = (index) => {
@@ -36,29 +46,36 @@ function Diary() {
     }
     newDiaries.splice(index, 1);
     setDiaries(newDiaries);
-    console.log(selectedDiaryIndex)
   };
 
   const handleSelect = (index) => {
     setSelectedDiaryIndex(index);
   };
 
+  const handleAddDiaryClick = () => {
+    setShowForm(true);
+  };
+
   return (
     <TodayLog>
-      <DiaryForm
-        inputTitle={inputTitle}
-        setInputTitle={setInputTitle}
-        inputContent={inputContent}
-        setInputContent={setInputContent}
-        emptyInput={emptyInput}
-        handleSubmit={handleSubmit}
-      />
       <DiaryList
         diaries={diaries}
         handleDelete={handleDelete}
         handleSelect={handleSelect}
         selectedDiaryIndex={selectedDiaryIndex}
       />
+      {showForm ? (
+        <DiaryForm
+          inputTitle={inputTitle}
+          setInputTitle={setInputTitle}
+          inputContent={inputContent}
+          setInputContent={setInputContent}
+          emptyInput={emptyInput}
+          handleSubmit={handleSubmit}
+        />
+      ) : (
+        <AddDiaryButton onClick={handleAddDiaryClick}>일기쓰기</AddDiaryButton>
+      )}
       {selectedDiaryIndex !== null && (
         <DiaryView
           title={diaries[selectedDiaryIndex].title}
@@ -67,7 +84,7 @@ function Diary() {
           setSelectedDiaryIndex={setSelectedDiaryIndex}
           selectedDiaryIndex={selectedDiaryIndex}
           diaries={diaries}
-          setDiaries={setDiaries} 
+          setDiaries={setDiaries}
         />
       )}
     </TodayLog>
