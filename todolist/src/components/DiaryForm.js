@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const FormDiary = styled.form`
-
+  
 `
 
 function DiaryForm({ inputTitle, setInputTitle, inputContent, setInputContent, emptyInput, handleSubmit }) {

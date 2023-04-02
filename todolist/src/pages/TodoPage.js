@@ -1,5 +1,3 @@
-// import logo from './logo.svg';
-import React from 'react';
 import TodoList from '../components/TodoList';
 import Todo from '../components/Todo';
 import AddForm from '../components/AddForm';
