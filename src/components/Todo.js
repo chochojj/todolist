@@ -73,10 +73,6 @@ const Todo = memo(
       }
     }, [isUpdate]);
 
-    useEffect(() => {
-      setIsUpdate(false);
-    }, [todo]);
-
     const onClickTodo = () => {
       setIsUpdate(true);
     };
@@ -99,6 +95,9 @@ const Todo = memo(
 
     const onBlurInput = () => {
       setIsUpdate(false);
+      if (value !== todo) {
+        updateTodo(id, value, isChecked);
+      }
     };
 
     const onKeyUpInput = (e) => {

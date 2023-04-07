@@ -141,9 +141,12 @@ const TodoList = () => {
     (id) => () => {
       const newTodoList = todoList.filter((todoInfo) => todoInfo.id !== id);
       setTodoList(newTodoList);
+      localStorage.setItem('todoList', JSON.stringify(newTodoList));
+      localStorage.setItem('id', id);
     },
     [todoList]
   );
+  
 
   const toggleCheck = useCallback(
     (id) => () => {
