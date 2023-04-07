@@ -3,26 +3,49 @@ import carrot_hover from '../assets/imgs/carrot_hover.png'
 import { Link } from 'react-router-dom';
 
 const Side = styled.nav`
-  &{position: fixed;
+  position: fixed;
   top: 70px;
   right: 0;
   width: 260px;
   height: 100vh;
-  background-color: rgba(255,255,255,0.7);}
-  box-shadow: 0px 4px 4px rgba(0,0,0, 0.25);
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-top:20px;
+`;
 
-  
-`
-const StyledLink  = styled(Link)`
+const StyledLink = styled(Link)`
   display: flex;
-  
-  img{
-    width: 20px;
-    &:hover{
-      cursor: pointer;
+  align-items: center;
+  align-content: center;
+  margin: 10px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+
+    img {
+      visibility: visible;
+    }
+
+    span {
+      color: #DD8351;
     }
   }
-`
+
+  img {
+    width: 18px;
+    margin: 0px 10px 0px 25px;
+    visibility: hidden;
+
+  }
+
+  span {
+    color: #C56C3A;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+`;
 
 
 //애니메이션으로 부드러운 효과를 주려면

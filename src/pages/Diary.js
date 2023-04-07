@@ -13,6 +13,21 @@ const TodayLog = styled.div`
   align-items: center;
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(0,0,0, 0.1);
+
+  .date{
+    width: 85%;
+    font-size: 13px;
+    font-weight:600;
+  }
+  .date > span::selection{
+		color: orange;
+  }
+  .day{
+    margin-left: 5px;
+  }
+  .day::selection{
+    color: orange;
+  }
 `;
 
 const AddDiaryButton = styled.button`
@@ -75,10 +90,13 @@ function Diary() {
 
   return (
     <TodayLog>
+      <div className='header'>
         <div className='date'>  
           <span>{dateString}</span>
           <span className="day">{dayName}</span>
         </div>
+        {!showForm ? (<AddDiaryButton onClick={handleAddDiaryClick}>일기쓰기</AddDiaryButton>):(null)}
+      </div>
       {showForm ? (
         <DiaryForm
           inputTitle={inputTitle}
@@ -89,7 +107,7 @@ function Diary() {
           handleSubmit={handleSubmit}
         />
       ) : (
-        <AddDiaryButton onClick={handleAddDiaryClick}>일기쓰기</AddDiaryButton>
+        null
       )}
       <DiaryList
         diaries={diaries}
