@@ -102,9 +102,15 @@ const TodoList = () => {
       console.log('add');
       e.preventDefault();
       if (todo) {
+        const currentDate = new Date().toLocaleDateString();
         setTodoList((prevTodoList) => [
           ...prevTodoList,
-          { id: id, todo: todo, isChecked: false },
+          {
+            id: id,
+            todo: todo,
+            isChecked: false,
+            date: currentDate
+          },
         ]);
         setId((prevId) => prevId + 1);
       }

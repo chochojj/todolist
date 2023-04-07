@@ -4,7 +4,16 @@ import DiaryForm from '../components/DiaryForm';
 import DiaryList from '../components/DiaryList';
 import DiaryView from '../components/DiaryView';
 
-const TodayLog = styled.div``;
+const TodayLog = styled.div`
+  width: 800px;
+  height: 500px;
+  background-color: rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(0,0,0, 0.1);
+`;
 
 const AddDiaryButton = styled.button`
   padding: 10px 20px;
