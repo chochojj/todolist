@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, memo } from 'react';
+import useFetch from '../util/useFetch';
 import styled from 'styled-components';
 
 const StyledAddForm = styled.div`
@@ -36,6 +37,7 @@ const StyledAddForm = styled.div`
 
 const AddForm = memo(({ addTodo }) => {
   const [value, setValue] = useState('');
+  // const [todos, isPending, error] = useFetch(`http://localhost:3001/todos`)
   // 할일 입력칸(input)에 자동으로 포커스, 입력 후 초기화 시켜주는 코드
   const input = useRef(null);
 
