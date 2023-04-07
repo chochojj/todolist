@@ -14,10 +14,24 @@ const TodayLog = styled.div`
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(0,0,0, 0.1);
 
+  .header{
+    /* position: relative; */
+    width: 100%;
+    height: 40px;
+    margin: 5px 0px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    justify-content: space-between;
+  }
+
   .date{
-    width: 85%;
-    font-size: 13px;
+    font-size: 1.2em;
     font-weight:600;
+  }
+  .date > span:first-child{
+    margin-left: 30px;
   }
   .date > span::selection{
 		color: orange;
@@ -31,11 +45,15 @@ const TodayLog = styled.div`
 `;
 
 const AddDiaryButton = styled.button`
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #fff;
-  border: 2px solid #000;
-  border-radius: 5px;
+  width: 130px;
+  height: 32px;
+  text-align: center;
+  font-size: 1em;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.0);
+  font-weight: bold;
+  margin-right: 20px;
+  color: #A96650;
   cursor: pointer;
 `;
 
@@ -95,7 +113,7 @@ function Diary() {
           <span>{dateString}</span>
           <span className="day">{dayName}</span>
         </div>
-        {!showForm ? (<AddDiaryButton onClick={handleAddDiaryClick}>일기쓰기</AddDiaryButton>):(null)}
+        {!showForm ? (<AddDiaryButton onClick={handleAddDiaryClick}>오늘의 일기 작성</AddDiaryButton>):(null)}
       </div>
       {showForm ? (
         <DiaryForm
@@ -109,12 +127,12 @@ function Diary() {
       ) : (
         null
       )}
-      <DiaryList
+      {!showForm ? (<DiaryList
         diaries={diaries}
         handleDelete={handleDelete}
         handleSelect={handleSelect}
         selectedDiaryIndex={selectedDiaryIndex}
-      />
+      />):(null)}
       {selectedDiaryIndex !== null && (
         <DiaryView
           title={diaries[selectedDiaryIndex].title}
