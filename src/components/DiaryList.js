@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 function DiaryList({ diaries, handleDelete, handleSelect, selectedDiaryIndex }) {
     return (

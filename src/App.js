@@ -9,6 +9,7 @@ import TodoPage from './pages/TodoPage';
 import Diary from './pages/Diary';
 import Calendar from './pages/Calendar';
 import Madeby from './pages/MadeBy';
+import useFetch from './util/useFetch';
 
 
 
@@ -35,19 +36,19 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [openside, setSide] = useState(false);
-
+  const [todos, isPending, error] = useFetch(`http://localhost:3001/todos`);
 
   return (
     <>
-        <GlobalStyle />
-        <Header 
+      <GlobalStyle />
+      <Header 
           openside={openside}
           setSide={setSide}
-        />
-        <BrowserRouter>
-        {/* <TodoPage/> */}
+      />
+      <BrowserRouter>
+        { error && <div>{ error }</div> }
         <Routes>
-          <Route path="/" element={<TodoPage/>} />
+          <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} />
           <Route path="/diary" element={<Diary/>} />
           <Route path="/calendar" element={<Calendar/>} />
           <Route path="/madeby" element={<Madeby/>} />
