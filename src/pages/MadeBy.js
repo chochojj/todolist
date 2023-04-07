@@ -8,7 +8,7 @@ const Made = styled.div`
 function Madeby() {
   return (
     <Made>
-
+      암것두 없어용
     </Made>
   );
 }
