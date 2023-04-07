@@ -1,5 +1,7 @@
 import styled from 'styled-components';
+import carrot_hover from '../assets/imgs/carrot_hover.png'
 import { Link } from 'react-router-dom';
+
 const Side = styled.nav`
   &{position: fixed;
   top: 70px;
@@ -12,6 +14,14 @@ const Side = styled.nav`
   
 `
 const StyledLink  = styled(Link)`
+  display: flex;
+  
+  img{
+    width: 20px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
 `
 
 
@@ -33,10 +43,10 @@ const StyledLink  = styled(Link)`
 function SideBar() {
   return (
     <Side>
-        <StyledLink to="/">할 일 보기</StyledLink>
-        <StyledLink to="/diary">내 일기장</StyledLink>
-        <StyledLink to="/calendar">달력 보기</StyledLink>
-        <StyledLink to="/madeby">만든 사람</StyledLink>
+        <StyledLink to="/"><img src={carrot_hover} className='carrot' alt='할 일 보기' /><span>할 일 보기</span></StyledLink>
+        <StyledLink to="/diary"><img src={carrot_hover} className='carrot' alt='내 일기장' /><span>내 일기장</span></StyledLink>
+        <StyledLink to="/calendar"><img src={carrot_hover} className='carrot' alt='달력 보기' /><span>달력 보기</span></StyledLink>
+        <StyledLink to="/madeby"><img src={carrot_hover} className='carrot' alt='만든 사람' /><span>만든 사람</span></StyledLink>
     </Side>
   );
 }
