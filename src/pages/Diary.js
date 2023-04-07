@@ -127,12 +127,14 @@ function Diary() {
       ) : (
         null
       )}
-      {!showForm  ?  (<DiaryList
-        diaries={diaries}
-        handleDelete={handleDelete}
-        handleSelect={handleSelect}
-        selectedDiaryIndex={selectedDiaryIndex}
-      />):(null)}
+      {selectedDiaryIndex === null && !showForm && (
+        <DiaryList
+          diaries={diaries}
+          handleDelete={handleDelete}
+          handleSelect={handleSelect}
+          selectedDiaryIndex={selectedDiaryIndex}
+        />
+      )}
       {selectedDiaryIndex !== null && (
         <DiaryView
           title={diaries[selectedDiaryIndex].title}
