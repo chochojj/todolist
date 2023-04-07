@@ -1,0 +1,24 @@
+{
+    "todos": [
+      {
+        
+            "id": 1,
+            "todo": "산책 하기",
+            "isChecked": false,
+            "date": "2023. 4. 7."
+          
+      },
+      {
+        "id": 2,
+            "todo": "투두 만들기",
+            "isChecked": false,
+            "date": "2023. 4. 7."
+      },
+      {
+        "id": 3,
+        "todo": "빵집 가기",
+        "isChecked": false,
+        "date": "2023. 4. 7."
+      }
+    ]
+  }
