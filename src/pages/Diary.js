@@ -65,14 +65,20 @@ function Diary() {
     setShowForm(true);
   };
 
+  const today = new Date();
+  const dateString = today.toLocaleString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  const dayName = today.toLocaleString('ko-KR', { weekday: 'long' });
+
   return (
     <TodayLog>
-      <DiaryList
-        diaries={diaries}
-        handleDelete={handleDelete}
-        handleSelect={handleSelect}
-        selectedDiaryIndex={selectedDiaryIndex}
-      />
+        <div className='date'>  
+          <span>{dateString}</span>
+          <span className="day">{dayName}</span>
+        </div>
       {showForm ? (
         <DiaryForm
           inputTitle={inputTitle}
@@ -85,6 +91,12 @@ function Diary() {
       ) : (
         <AddDiaryButton onClick={handleAddDiaryClick}>일기쓰기</AddDiaryButton>
       )}
+      <DiaryList
+        diaries={diaries}
+        handleDelete={handleDelete}
+        handleSelect={handleSelect}
+        selectedDiaryIndex={selectedDiaryIndex}
+      />
       {selectedDiaryIndex !== null && (
         <DiaryView
           title={diaries[selectedDiaryIndex].title}
