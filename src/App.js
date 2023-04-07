@@ -3,7 +3,7 @@ import {React, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
-import Header from './components/Header';
+import Header from './components/header';
 import SideBar from './components/SideBar';
 import TodoPage from './pages/TodoPage';
 import Diary from './pages/Diary';
