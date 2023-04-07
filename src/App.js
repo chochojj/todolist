@@ -2,15 +2,15 @@
 import {React, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import Header from './components/header';
-import SideBar from './components/SideBar';
-import TodoPage from './pages/TodoPage';
-import Diary from './pages/Diary';
-import Calendar from './pages/Calendar';
-import Madeby from './pages/MadeBy';
 import useFetch from './util/useFetch';
-
+const Header = lazy(() => import('./components/header'));
+const SideBar = lazy(() => import('./components/SideBar'));
+const TodoPage = lazy(() => import('./pages/TodoPage'));
+const Diary = lazy(() => import('./pages/Diary'));
+const Calendar = lazy(() => import('./pages/Calendar'));
+const Madeby = lazy(() => import('./pages/MadeBy'));
 
 
 const GlobalStyle = createGlobalStyle`
@@ -47,6 +47,7 @@ function App() {
       />
       <BrowserRouter>
         { error && <div>{ error }</div> }
+        <Suspense fallback={<div>Loading</div>}>
         <Routes>
           <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} />
           <Route path="/diary" element={<Diary/>} />
@@ -55,6 +56,7 @@ function App() {
         </Routes>
         {/* 링크로 연결시키는 부분이 브라우저 라우터 - 라우츠 사이 있어야함 */}
         {openside === true ? <SideBar/> : null}
+        </Suspense>
       </BrowserRouter>
     </>
   );
