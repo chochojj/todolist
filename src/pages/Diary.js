@@ -127,7 +127,7 @@ function Diary() {
       ) : (
         null
       )}
-      {!showForm ? (<DiaryList
+      {!showForm  ?  (<DiaryList
         diaries={diaries}
         handleDelete={handleDelete}
         handleSelect={handleSelect}
