@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import DiaryForm from '../components/DiaryForm';
 import DiaryList from '../components/DiaryList';
@@ -58,12 +58,26 @@ const AddDiaryButton = styled.button`
 `;
 
 function Diary() {
-  const [diaries, setDiaries] = useState([]);
+  const [diaries, setDiaries] = useState(() => {
+    const storedDiaries = localStorage.getItem('diaries');
+    return storedDiaries ? JSON.parse(storedDiaries) : [];
+  });
   const [inputTitle, setInputTitle] = useState('');
   const [inputContent, setInputContent] = useState('');
   const [emptyInput, setEmptyInput] = useState(false);
   const [selectedDiaryIndex, setSelectedDiaryIndex] = useState(null);
   const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    const storedDiaries = JSON.parse(localStorage.getItem('diaries'));
+    if (storedDiaries) {
+      setDiaries(storedDiaries);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('diaries', JSON.stringify(diaries));
+  }, [diaries]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
