@@ -113,39 +113,25 @@ function Schedule() {
   });
   const [value, onChange] = useState(new Date());
 
-  function getDiary(date) {
-    return diaries.find(diary => diary.date === formatDate(date));
-  }
+  // 해당 날짜에 일치하는 일기가 있는지 확인하는 함수
+  const hasDiary = (date) => {
+    return diaries.some((diary) => diary.date === date.toDateString());
+  };
 
-  function formatDate(date) {
-    return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}.`;
-  }
-
-
+  // 달력의 각 날짜마다 렌더링될 콘텐츠를 정의하는 함수
+  const tileContent = ({ date }) => {
+    if (hasDiary(date)) {
+      return <span>점</span>;
+    return null;
+  };
   return (
-    <Monthly
-      // renderDay 함수를 업데이트하여 해당 날짜에 일치하는 일기를 표시
-      renderDay={(date, _, modifiers) => {
-        const diary = getDiary(date);
-        const hasDiary = !!diary;
-        return (
-          <div
-            style={{ backgroundColor: hasDiary ? 'yellow' : 'transparent' }}
-            {...modifiers}
-          >
-            {hasDiary && (
-              <div>
-                <h3>{diary.title}</h3>
-                <p>{diary.content}</p>
-              </div>
-            )}
-            {date.getDate()}
-          </div>
-        );
-      }}
-    >
-      <Calendar onChange={onChange} value={value} />
-    </Monthly>
+    <Monthly>
+    <Calendar
+      onChange={onChange}
+      value={value}
+      tileContent={tileContent}
+    />
+  </Monthly>
   );
 }
 
