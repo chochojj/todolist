@@ -31,7 +31,6 @@ const StyledTodo = styled.div`
     text-decoration: line-through;
   }
 
-
   .update-form input {
     background-color: transparent;
     border: none;

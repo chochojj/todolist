@@ -4,12 +4,12 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import useFetch from './util/useFetch';
+// import useFetch from './util/useFetch';
 const Header = lazy(() => import('./components/header'));
 const SideBar = lazy(() => import('./components/SideBar'));
 const TodoPage = lazy(() => import('./pages/TodoPage'));
 const Diary = lazy(() => import('./pages/Diary'));
-const Calendar = lazy(() => import('./pages/Calendar'));
+const Schedule = lazy(() => import('./pages/Schedule'));
 const Madeby = lazy(() => import('./pages/MadeBy'));
 
 
@@ -52,7 +52,7 @@ function App() {
           {/* <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} /> */}
           <Route path="/" element={<TodoPage />} />
           <Route path="/diary" element={<Diary/>} />
-          <Route path="/calendar" element={<Calendar/>} />
+          <Route path="/schedule" element={<Schedule/>} />
           <Route path="/madeby" element={<Madeby/>} />
         </Routes>
         {/* 링크로 연결시키는 부분이 브라우저 라우터 - 라우츠 사이 있어야함 */}

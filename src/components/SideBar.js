@@ -68,7 +68,7 @@ function SideBar() {
     <Side>
         <StyledLink to="/"><img src={carrot_hover} className='carrot' alt='할 일 보기' /><span>할 일 보기</span></StyledLink>
         <StyledLink to="/diary"><img src={carrot_hover} className='carrot' alt='내 일기장' /><span>내 일기장</span></StyledLink>
-        <StyledLink to="/calendar"><img src={carrot_hover} className='carrot' alt='달력 보기' /><span>달력 보기</span></StyledLink>
+        <StyledLink to="/schedule"><img src={carrot_hover} className='carrot' alt='달력 보기' /><span>달력 보기</span></StyledLink>
         <StyledLink to="/madeby"><img src={carrot_hover} className='carrot' alt='만든 사람' /><span>만든 사람</span></StyledLink>
     </Side>
   );
