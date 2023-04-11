@@ -127,7 +127,7 @@ function Diary() {
           <span>{dateString}</span>
           <span className="day">{dayName}</span>
         </div>
-        {!showForm ? (<AddDiaryButton onClick={handleAddDiaryClick}>오늘의 일기 작성</AddDiaryButton>):(null)}
+        {!showForm && selectedDiaryIndex === null ? (<AddDiaryButton onClick={handleAddDiaryClick}>오늘의 일기 작성</AddDiaryButton>):(null)}
       </div>
       {showForm ? (
         <DiaryForm

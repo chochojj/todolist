@@ -122,6 +122,7 @@ function Schedule() {
   const tileContent = ({ date }) => {
     if (hasDiary(date)) {
       return <span>점</span>;
+    }
     return null;
   };
   return (
