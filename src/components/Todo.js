@@ -31,9 +31,6 @@ const StyledTodo = styled.div`
     text-decoration: line-through;
   }
 
-  .list button {
-    background-color: transparent;
-  }
 
   .update-form input {
     background-color: transparent;
@@ -45,7 +42,8 @@ const StyledTodo = styled.div`
   }
 
   .list button {
-    font-size: 1vh;
+    /* font-size: 1vh; */
+    background-color: transparent;
     width: 20px;
     height: 20px;
     padding: 0;

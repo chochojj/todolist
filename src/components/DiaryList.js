@@ -20,16 +20,37 @@ const FormUl = styled.ul`
   ::-webkit-scrollbar {
     position: absolute;
     width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(1, 107, 8, 0.1);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(1, 107, 8, 0.2);
-}
-
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(1, 107, 8, 0.1);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(1, 107, 8, 0.2);
+  }
+  .title{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  
+  button {
+    /* font-size: 1vh; */
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    padding: 0;
+    font-weight: bold;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    background-color: transparent;
+  }
+  button:hover{
+    cursor: pointer;
+    background-color:rgba(133, 86, 40,0.7);
+    color: white;
+  }
 
 `;
 
@@ -38,7 +59,7 @@ function DiaryList({ diaries, handleDelete, handleSelect, selectedDiaryIndex }) 
       <FormUl>
         {diaries.map((diary, index) => (
           <li key={index} className={selectedDiaryIndex === index ? 'selected' : ''}>
-            <span onClick={() => handleSelect(index)}>{diary.title} {diary.date}</span>
+            <div className='title' onClick={() => handleSelect(index)}><span>{diary.title}</span><span>{diary.date}</span> </div>
             <button onClick={() => handleDelete(index)}>X</button>
           </li>
         ))}
