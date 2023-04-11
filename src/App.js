@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     font-family: "NanumLt"
   }
+  
   body {
     width: 100%;
     height: 100vh;

@@ -21,6 +21,12 @@ const StyledLink = styled(Link)`
   padding: 10px;
   transition: all 0.3s ease-in-out;
 
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
   &:hover {
 
     img {
@@ -38,6 +44,7 @@ const StyledLink = styled(Link)`
     visibility: hidden;
 
   }
+  
 
   span {
     color: #C56C3A;

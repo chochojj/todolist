@@ -1,4 +1,5 @@
 import React from 'react';
+import carrot from '../assets/imgs/lay.png'
 import styled from 'styled-components';
 
 const Made = styled.section`
@@ -12,6 +13,19 @@ const Made = styled.section`
     box-shadow: 0px 0px 5px rgba(0,0,0, 0.1);
     text-align: center;
 
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+    .img_wrap{
+      margin-top: 10px;
+    }
+
+    img{
+      width: 160px;
+    }
     p{
         font-size: 16px;
         margin-bottom : 10px;
@@ -23,16 +37,19 @@ const Made = styled.section`
         font-size: 16px;
         margin-top: 30px;
     }
+    a:hover{
+      color: salmon;
+    }
     .name{
         font-size: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 `
 
 function Madeby() {
   return (
     <Made>
-      <div className='img_wrap'><img/></div>
+      <div className='img_wrap'><img src={carrot} className='carrot' alt='할 일 보기' /></div>
       <div className='profile'>
         <p className='name'>조지현</p>
         <p>소개</p>

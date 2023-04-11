@@ -11,6 +11,14 @@ const Mainheader = styled.header`
   background-color: rgba(241,218,197,0.65);
   box-shadow: 0px 4px 4px rgba(0,0,0, 0.1);
   z-index: 5;
+
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  
   ul{
     padding: 0;
     margin: 0;
