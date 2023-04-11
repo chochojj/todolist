@@ -3,6 +3,7 @@ import useFetch from '../util/useFetch';
 import styled from 'styled-components';
 
 const StyledAddForm = styled.div`
+  
   button::selection{
     background: none;
   }
@@ -21,6 +22,7 @@ const StyledAddForm = styled.div`
     border: none;
     border-radius: 5px 0 0 5px;
   }
+  
   button{
     width: 65px;
     height: 32px;
