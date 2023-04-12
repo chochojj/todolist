@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import {React, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
@@ -11,7 +11,6 @@ const TodoPage = lazy(() => import('./pages/TodoPage'));
 const Diary = lazy(() => import('./pages/Diary'));
 const Schedule = lazy(() => import('./pages/Schedule'));
 const Madeby = lazy(() => import('./pages/MadeBy'));
-
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -42,22 +41,19 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Header 
-          openside={openside}
-          setSide={setSide}
-      />
+      <Header openside={openside} setSide={setSide} />
       <BrowserRouter>
         {/* { error && <div>{ error }</div> } */}
         <Suspense fallback={<div>Loading</div>}>
-        <Routes>
-          {/* <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} /> */}
-          <Route path="/" element={<TodoPage />} />
-          <Route path="/diary" element={<Diary/>} />
-          <Route path="/schedule" element={<Schedule/>} />
-          <Route path="/madeby" element={<Madeby/>} />
-        </Routes>
-        {/* 링크로 연결시키는 부분이 브라우저 라우터 - 라우츠 사이 있어야함 */}
-        {openside === true ? <SideBar/> : null}
+          <Routes>
+            {/* <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} /> */}
+            <Route path="/" element={<TodoPage />} />
+            <Route path="/diary" element={<Diary />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/madeby" element={<Madeby />} />
+          </Routes>
+          {/* 링크로 연결시키는 부분이 브라우저 라우터 - 라우츠 사이 있어야함 */}
+          {openside === true ? <SideBar /> : null}
         </Suspense>
       </BrowserRouter>
     </>
