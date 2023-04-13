@@ -37,6 +37,7 @@ const ViewDiary = styled.section`
     border-bottom: 1px;
     background-color: rgba(254, 194, 194, 0.15);
     resize: none;
+    white-space: pre-wrap;
   }
   textarea {
     width: 100%;
