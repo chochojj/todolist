@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react';
+import styled from 'styled-components';
 
 const ViewDiary = styled.section`
   width: 100%;
@@ -84,7 +84,7 @@ function DiaryView({
   const [editableTitle, setEditableTitle] = useState(title);
   const [editableContent, setEditableContent] = useState(content);
   const [editable, setEditable] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleTitleChange = (e) => {
     setEditableTitle(e.target.value);
@@ -96,7 +96,7 @@ function DiaryView({
 
   const handleSave = () => {
     if (!editableTitle || !editableContent) {
-      setErrorMessage("제목과 내용을 입력해주세요.");
+      setErrorMessage('제목과 내용을 입력해주세요.');
       return;
     }
     const newDiaries = [...diaries];
@@ -107,7 +107,7 @@ function DiaryView({
     };
     setDiaries(newDiaries);
     setEditable(false);
-    setErrorMessage(""); // 에러 메시지 초기화
+    setErrorMessage(''); // 에러 메시지 초기화
   };
 
   const handleBack = () => {
