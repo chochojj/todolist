@@ -69,7 +69,7 @@ const StyledLink = styled(Link)`
 function SideBar() {
   return (
     <Side>
-      <StyledLink to="/">
+      <StyledLink to="/todolist">
         <img src={carrot_hover} className="carrot" alt="할 일 보기" />
         <span>할 일 보기</span>
       </StyledLink>
