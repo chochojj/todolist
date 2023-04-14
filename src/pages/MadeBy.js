@@ -1,5 +1,5 @@
 import React from 'react';
-import carrot from '../assets/imgs/lay.png';
+import lay from '../assets/imgs/lay.png';
 import styled from 'styled-components';
 
 const Made = styled.section`
@@ -50,7 +50,7 @@ function Madeby() {
   return (
     <Made>
       <div className="img_wrap">
-        <img src={carrot} className="carrot" alt="프로필" />
+        <img src={lay} className="profile" alt="프로필" />
       </div>
       <div className="profile">
         <p className="name">조지현</p>
