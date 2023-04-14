@@ -39,7 +39,7 @@ function App() {
   // const [todos, isPending, error] = useFetch(`http://localhost:3001/todos`);
 
   return (
-    <BrowserRouter basename='/todolist'>
+    <BrowserRouter>
       <GlobalStyle />
       <div className="App">
         <Header openside={openside} setSide={setSide} />
