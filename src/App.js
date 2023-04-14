@@ -39,22 +39,24 @@ function App() {
   // const [todos, isPending, error] = useFetch(`http://localhost:3001/todos`);
 
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <GlobalStyle />
-      <Header openside={openside} setSide={setSide} />
+      <div className="App">
+        <Header openside={openside} setSide={setSide} />
 
-      {/* { error && <div>{ error }</div> } */}
-      <Suspense fallback={<div>Loading</div>}>
-        <Routes>
-          {/* <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} /> */}
-          <Route path="/" element={<TodoPage />} />
-          <Route path="/diary" element={<Diary />} />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/madeby" element={<Madeby />} />
-        </Routes>
-        {/* 링크로 연결시키는 부분이 브라우저 라우터 - 라우츠 사이 있어야함 */}
-        {openside === true ? <SideBar /> : null}
-      </Suspense>
+        {/* { error && <div>{ error }</div> } */}
+        <Suspense fallback={<div>Loading</div>}>
+          <Routes>
+            {/* <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} /> */}
+            <Route path="/" element={<TodoPage />} />
+            <Route path="/diary" element={<Diary />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/madeby" element={<Madeby />} />
+          </Routes>
+          {/* 링크로 연결시키는 부분이 브라우저 라우터 - 라우츠 사이 있어야함 */}
+          {openside === true ? <SideBar /> : null}
+        </Suspense>
+      </div>
     </BrowserRouter>
   );
 }
