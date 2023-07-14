@@ -39,7 +39,7 @@ function App() {
   // const [todos, isPending, error] = useFetch(`http://localhost:3001/todos`);
 
   return (
-    <BrowserRouter basename='/todolist'>
+    <BrowserRouter basename="/">
       <GlobalStyle />
       <div className="App">
         <Header openside={openside} setSide={setSide} />
@@ -48,7 +48,7 @@ function App() {
         <Suspense fallback={<div>Loading</div>}>
           <Routes>
             {/* <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} /> */}
-            <Route path="/todolist" element={<TodoPage />} />
+            <Route path="/" element={<TodoPage />} />
             <Route path="/diary" element={<Diary />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/madeby" element={<Madeby />} />
