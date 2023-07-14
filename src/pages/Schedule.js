@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Monthly = styled.div`
   width: 800px;
   height: fit-content;
-  paddding: 10px;
+  padding: 10px;
   background-color: rgba(255, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
