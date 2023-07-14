@@ -40,7 +40,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GlobalStyle basename="/" />
+      <GlobalStyle basename="/todolist" />
       <div className="App">
         <Header openside={openside} setSide={setSide} />
 
@@ -48,7 +48,7 @@ function App() {
         <Suspense fallback={<div>Loading</div>}>
           <Routes>
             {/* <Route path="/" element={<TodoPage todos={todos} isPending={isPending}/>} /> */}
-            <Route path="/" element={<TodoPage />} />
+            <Route path="/todolist" element={<TodoPage />} />
             <Route path="/diary" element={<Diary />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/madeby" element={<Madeby />} />
